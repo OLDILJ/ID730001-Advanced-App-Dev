@@ -1,0 +1,10 @@
+Deck -> contains 52 cards, list with 52 objects
+Cards -> has a array of values from 1->13, Ace is valued 1 AND 11
+On game start shuffle order of deck.
+Take 2 cards out of the deck, Give one to the player and one to the dealer.
+Display Dealer Card.
+Ask player to hit, stand or fold.
+Have a player turn go by either taking one card from the deck or not.
+Then give dealer another card.
+Display Dealer Card
+Repeat until someone busts, or dealer reaches value limit (16)
