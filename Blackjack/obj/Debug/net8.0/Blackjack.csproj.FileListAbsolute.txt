@@ -1,0 +1,5 @@
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.GeneratedMSBuildEditorConfig.editorconfig
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.AssemblyInfoInputs.cache
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.AssemblyInfo.cs
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.csproj.CoreCompileInputs.cache
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.sourcelink.json
