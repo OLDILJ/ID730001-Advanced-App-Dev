@@ -3,3 +3,13 @@ C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.AssemblyInfoIn
 C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.AssemblyInfo.cs
 C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.csproj.CoreCompileInputs.cache
 C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.sourcelink.json
+C:\ID730001-Advanced-App-Dev\Blackjack\bin\Debug\net8.0\Blackjack.exe
+C:\ID730001-Advanced-App-Dev\Blackjack\bin\Debug\net8.0\Blackjack.deps.json
+C:\ID730001-Advanced-App-Dev\Blackjack\bin\Debug\net8.0\Blackjack.runtimeconfig.json
+C:\ID730001-Advanced-App-Dev\Blackjack\bin\Debug\net8.0\Blackjack.dll
+C:\ID730001-Advanced-App-Dev\Blackjack\bin\Debug\net8.0\Blackjack.pdb
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.dll
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\refint\Blackjack.dll
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.pdb
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\Blackjack.genruntimeconfig.cache
+C:\ID730001-Advanced-App-Dev\Blackjack\obj\Debug\net8.0\ref\Blackjack.dll
