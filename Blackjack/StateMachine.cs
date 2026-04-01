@@ -12,10 +12,7 @@ namespace Blackjack
         public Global.State GState { get; private set; }
 
         public StateMachine() 
-        {
-
-
-            
+        {   
         }
         public void InitializeStateMachine()
         {

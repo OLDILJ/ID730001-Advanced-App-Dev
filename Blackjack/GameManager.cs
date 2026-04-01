@@ -39,5 +39,9 @@ namespace Blackjack
             // rand.Shuffle(CurrentDeck.CardList);
 
         }
+        public void CardAnimation()
+        {
+            
+        }
     }
 }
