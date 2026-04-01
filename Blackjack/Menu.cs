@@ -18,7 +18,11 @@
 
                     break;
                 case "2":
-
+                    Console.WriteLine("Selected Deck: {Example Deck}");
+                    Console.WriteLine("Basic Config: {Config Name}");
+                    Console.WriteLine("Are You Ready To Start?");
+                    Console.WriteLine("(Y)es, (N)o");
+                    Console.ReadLine();
                     break;
                 case "3":
 

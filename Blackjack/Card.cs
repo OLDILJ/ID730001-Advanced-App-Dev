@@ -2,7 +2,7 @@
 
 namespace Blackjack
 {
-    internal class Card
+    public class Card
     {
         int Value; // 1 - 13
         int Suit; // Hearts, Diamonds, Clubs, Spades
