@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\ID730001-Advanced-App-Dev\\Blackjack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69A905D4-94FA-44DC-84FB-29B5023457CF}|Blackjack.csproj|c:\\id730001-advanced-app-dev\\blackjack\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69A905D4-94FA-44DC-84FB-29B5023457CF}|Blackjack.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{69A905D4-94FA-44DC-84FB-29B5023457CF}|Blackjack.csproj|c:\\id730001-advanced-app-dev\\blackjack\\gamepresets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69A905D4-94FA-44DC-84FB-29B5023457CF}|Blackjack.csproj|solutionrelative:gamepresets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69A905D4-94FA-44DC-84FB-29B5023457CF}|Blackjack.csproj|c:\\id730001-advanced-app-dev\\blackjack\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69A905D4-94FA-44DC-84FB-29B5023457CF}|Blackjack.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69A905D4-94FA-44DC-84FB-29B5023457CF}|Blackjack.csproj|c:\\id730001-advanced-app-dev\\blackjack\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,17 +90,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GamePresets.cs",
               "DocumentMoniker": "C:\\ID730001-Advanced-App-Dev\\Blackjack\\GamePresets.cs",
               "RelativeDocumentMoniker": "GamePresets.cs",
               "ToolTip": "C:\\ID730001-Advanced-App-Dev\\Blackjack\\GamePresets.cs",
               "RelativeToolTip": "GamePresets.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBkAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAwBIAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-25T07:01:03.72Z",
               "EditorCaption": ""
@@ -230,20 +230,20 @@
               "RelativeDocumentMoniker": "StateMachine.cs",
               "ToolTip": "C:\\ID730001-Advanced-App-Dev\\Blackjack\\StateMachine.cs",
               "RelativeToolTip": "StateMachine.cs",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAuwK4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAYwJAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-01T20:17:07.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\ID730001-Advanced-App-Dev\\Blackjack\\Menu.cs",
               "RelativeDocumentMoniker": "Menu.cs",
               "ToolTip": "C:\\ID730001-Advanced-App-Dev\\Blackjack\\Menu.cs",
               "RelativeToolTip": "Menu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAYwDsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T19:54:21.573Z",
               "EditorCaption": ""

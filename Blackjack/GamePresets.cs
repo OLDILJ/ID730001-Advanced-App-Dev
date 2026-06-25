@@ -29,7 +29,7 @@ namespace Blackjack
 
                 ("CPU1", new BotPlayerFactory(new BasicStrategy())),
                 ("CPU2", new BotPlayerFactory(new ConservativeStrategy())),
-                ("CPU3", new BotPlayerFactory(new AggressiveStrategy()))
+                ("CPU3", new BotPlayerFactory(new AggressiveStrategy())) // I could expand this if I want to add more cpus but 3 seems fine. though I do want to come back to this and add a proper menu config setting for cpus
             };
         }
     }
