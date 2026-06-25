@@ -1,80 +1,175 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blackjack
 {
-    internal class StateMachine
+    public class StateMachine
     {
-        public bool GameLoop { get; set; }
-        public Global.State GState { get; private set; }
+        public GameManager game = new GameManager();
+        public Dealer dealer = new Dealer();
+        public List<Player> players;
 
-        public StateMachine() 
-        {   
-        }
-        public void InitializeStateMachine()
+        public bool GameLoop = true;
+
+        public StateMachine(List<Player> players)
         {
-            Menu CurMenu = new Menu();
-            GameLoop = true;
+            this.players = players;
+        }
 
-            Console.WriteLine("Hello, World!");
-
-            Console.WriteLine("Test123");
-            AssignEnum();
-            Console.WriteLine(GState.ToString());
-
-            //while MenuStateTrue run menu code
+        public void Run()
+        {
             while (GameLoop)
             {
-                switch (GState)
-                {
-                    case Global.State.Menu:
-                        CurMenu.OpenMenu();
-                        break;
-                    case Global.State.Config:
-                        break;
-                    case Global.State.DeckSelect:
-                        Console.WriteLine("Deck Select Started");
-                        break;
-                    case Global.State.HighScore:
-                        break;
-                    case Global.State.DealerStart:
-                        break;
-                    case Global.State.PlayerTurn:
-                        break;
-                    case Global.State.COMTurn:
-                        break;
-                    case Global.State.DealerTurn:
-                        break;
-                    case Global.State.RecordHighScore:
-                        break;
-                    default:
-                        break;
-                }
+                StartRound();
+
+                PlayerPhase();
+
+                DealerTurn();
+
+                ResolveRound();
+
+                CheckGameEnd();
+            }
+
+            ShowLeaderboard();
+        }
+
+        
+        void PlayerPhase()
+        {
+            Console.WriteLine();
+            Console.WriteLine("PLAYER PHASE");
+            Console.WriteLine();
+
+            foreach (var player in players)
+            {
+                if (!player.isActive)
+                    continue;
+
+                Console.WriteLine($"--- {player.name}'s Turn ---");
+                Console.WriteLine($"Strategy: {player.strategy.GetType().Name}");
+                Console.WriteLine($"Hand: {player.hand} | Total: {player.hand.GetValue()} | Soft: {player.hand.IsSoft()}");
+                player.PlayTurn(game);
+                Console.WriteLine($"End of turn: {player.name}");
+                Console.WriteLine($"Cards remaining after {player.name}: {game.CurrentDeck.CardsRemaining()}");
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine();
+
             }
         }
-        public Global.State AssignEnum()
+        
+
+        void StartRound()
         {
-            string Test = Console.ReadLine();
-            int value;
-            if (int.TryParse(Test, out value))
+            Console.WriteLine("NEW ROUND STARTED");
+
+            game.ResetRound();
+
+            foreach (var p in players)
             {
-                if (value >= 10 || value <= -1)
+                if (p.isActive)
                 {
-                    Console.WriteLine("Invalid Start Condition Try Again");
-                    InitializeStateMachine();
+                    p.hand = new Hand();
+                    game.Deal(p);
+                    game.Deal(p);
                 }
-                Console.WriteLine($"Valid Start Condition Continuing To {value} State");
-                GState = (Global.State)value;
-                return GState;
             }
-            else
+
+            dealer.hand = new Hand();
+            game.DealDealer(dealer);
+            game.DealDealer(dealer);
+            Console.WriteLine($"Dealer shows: {dealer.ShowPartialHand()}");
+        }
+
+        void DealerTurn()
+        {
+            Console.WriteLine("Dealer Turn");
+
+            while (dealer.ShouldHit())
             {
-                Console.WriteLine("NAN Please Try Again");
+                game.DealDealer(dealer);
             }
-            return GState;
+            Console.WriteLine($"Cards remaining after dealer: {game.CurrentDeck.CardsRemaining()}");
+        }
+
+        void ResolveRound()
+        {
+            Console.WriteLine("Dealer reveals full hand:");
+            Console.WriteLine(dealer.ShowFullHand());
+            int dealerValue = dealer.hand.GetValue(); 
+            bool dealerBust = dealer.hand.IsBust();
+
+            foreach (var player in players)
+            {
+                if (!player.isActive)
+                    continue;
+
+                int playerValue = player.hand.GetValue();
+                bool blackjack = player.hand.IsBlackjack();
+
+                if (player.hand.IsBust())
+                {
+                    player.ReceiveResult("Loss");
+                }
+                else if (dealerBust)
+                {
+                    player.ReceiveResult(blackjack ? "Blackjack" : "Win");
+                }
+                else if (blackjack)
+                {
+                    player.ReceiveResult("Blackjack");
+                }
+                else if (playerValue > dealerValue)
+                {
+                    player.ReceiveResult("Win");
+                }
+                else if (playerValue < dealerValue)
+                {
+                    player.ReceiveResult("Loss");
+                }
+                else
+                {
+                    player.ReceiveResult("Tie");
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("SCOREBOARD");
+
+            foreach (var player in players)
+            {
+                Console.WriteLine($"{player.name} | Score: {player.score}");
+            }
+            Console.WriteLine();
+        }
+
+        void CheckGameEnd()
+        {
+            bool anyActive = false;
+
+            foreach (var p in players)
+            {
+                if (p.isActive)
+                    anyActive = true;
+            }
+
+            if (!anyActive)
+                GameLoop = false;
+
+            Console.WriteLine("Continue? (y/n)");
+            if (Console.ReadLine() == "n")
+                GameLoop = false;
+        }
+
+        void ShowLeaderboard()
+        {
+            Console.WriteLine("FINAL LEADERBOARD");
+
+            players.Sort((a, b) => b.score.CompareTo(a.score));
+
+            foreach (var p in players)
+            {
+                Console.WriteLine(p);
+            }
         }
     }
 }

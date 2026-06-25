@@ -1,60 +1,60 @@
-﻿namespace Blackjack
+﻿using System;
+
+namespace Blackjack
 {
-    using System;
-    using System.Windows.Input;
     public class Menu
     {
-        public Menu()
-        {
-        }
         public void OpenMenu()
         {
-            string UserInput;
-            int MenuPosition = 0;
-            Console.WriteLine("BlackJack Menu");
-            Console.WriteLine("Type 1 To View Available Decks");
-            Console.WriteLine("Type 2 To Start Game");
-            Console.WriteLine("Type 3 to View Best Streaks");
-            switch (_ = Console.ReadLine())
+            while (true)
             {
-                case "1":
-                    //OpenDeckViewer();
-                    break;
-                case "2":
-                    Console.WriteLine("Selected Deck: {Example Deck}");
-                    Console.WriteLine("Basic Config: {Config Name}");
-                    Console.WriteLine("Are You Ready To Start?");
-                    Console.WriteLine("(Y)es, (N)o");
-                    UserInput = Console.ReadLine();
-                    UserInput = UserInput.ToUpper();
-                    switch (UserInput)
-                    {
-                        case "Y":
-                            //StartGame();
-                            Console.WriteLine("You Selected YES");
-                            break;
-                        case "N":
-                            Console.WriteLine("You Selected NO");
-                            OpenMenu();
-                            break;
-                        default:
-                            Console.WriteLine("UNKNOWN INPUT TRY AGAIN");
-                            OpenMenu();
-                            break;
-                    }
-                    break;
-                case "3":
-                    //ViewHighScore();
-                    break;
-                default:
-                    {
-                        Console.WriteLine("Please Enter 1, 2, or 3");
-                        OpenMenu();
+                Console.WriteLine("=== BLACKJACK MENU ===");
+                Console.WriteLine("1. Human vs Human");
+                Console.WriteLine("2. Human vs CPU");
+                Console.WriteLine("3. Exit");
+                Console.WriteLine();
+
+                string input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        StartHumanGame();
                         break;
-                    }
+
+                    case "2":
+                        StartCpuGame();
+                        break;
+
+                    case "3":
+                        Environment.Exit(0);
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input.");
+                        break;
+                }
             }
         }
 
-    }
+        private void StartHumanGame()
+        {
+            Console.Write("Enter Player 1 name: ");
+            string p1 = Console.ReadLine();
 
+            Console.Write("Enter Player 2 name: ");
+            string p2 = Console.ReadLine();
+
+            var game = new BlackjackGame(GamePresets.TwoHumans(p1, p2));
+            game.PlayGame();
+        }
+
+        private void StartCpuGame()
+        {
+            Console.Write("Enter Player name: ");
+            string p1 = Console.ReadLine();
+            var game = new BlackjackGame(GamePresets.HumanVsCpu(p1));
+            game.PlayGame();
+        }
+    }
 }

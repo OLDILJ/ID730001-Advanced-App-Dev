@@ -8,10 +8,6 @@ namespace Blackjack
 {
     public class Global
     {
-        public Global()
-        {
-
-        }
         public enum State
         {
             Menu = 0,
@@ -25,6 +21,5 @@ namespace Blackjack
             RecordHighScore = 8,
             Unknown = 99
         }
-
     }
 }

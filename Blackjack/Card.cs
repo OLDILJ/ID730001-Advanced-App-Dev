@@ -2,19 +2,40 @@
 
 namespace Blackjack
 {
+    public enum Suit
+    {
+        Spade,
+        Heart,
+        Diamond,
+        Club
+    }
     public class Card
     {
-        int Value; // 1 - 13
-        int Suit; // Hearts, Diamonds, Clubs, Spades
-        String Name;
-        String SuitNames;
-        public Card()
-        {
-            Value = 0;
-            Suit = 0;
-            Name = "Zero Card";
-            SuitNames = "Blank Suit";
+        public Suit suit;
+        public int value; // 1–13
 
+        public Card(Suit suit, int value)
+        {
+            this.suit = suit;
+            this.value = value;
         }
+        
+        public override string ToString()
+        {
+            return $"{ValueName()} of {suit}";
+        }
+
+        private string ValueName()
+        {
+            return value switch //check if its a face card/ace
+            {
+                1 => "Ace",
+                11 => "Jack",
+                12 => "Queen",
+                13 => "King",
+                _ => value.ToString()
+            };
+        }
+
     }
 }
